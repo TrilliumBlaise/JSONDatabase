@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' media='screen and (min-width: 901px)' href="budget-screen.css">
+    <link rel="stylesheet" media= "screen and (min-width: 701px) and (max-width: 900px)" href="budget-screen-cellphones-horizontal.css">
+    <link rel="stylesheet" media= "screen and (max-width: 700px)" href="budget-screen-cellphones-vertical.css">
+    <script src="budget-screen-controller.js" type="module"></script>
+    <script src="../../assets/calender/calender-controller.js" type="module"></script>
+    <title>Best Budget - Welcome!</title>
+</head>
+
+<body>
+    <div class="budget-screen screen">
+        <div class="header">
+            <div class="title">Best Budget</div>
+            <div class="control-buttons">
+                <button class="suggestions"></button>
+                <button class="report"></button>
+                <button class="increase-balance"></button>
+                <button class="settings"></button>
+            </div>
+        </div>
+        <div class="budget-calender"></div>
+        <div class="balance-expense"></div>
+        <div class="buttons">
+            <button class="add-recurring-income-expense"></button>
+            <button class="add-one-time-income-expense"></button>
+        </div>
+    </div>
+</body>
+</html>

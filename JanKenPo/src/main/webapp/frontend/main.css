@@ -1,0 +1,353 @@
+/*Imports*/
+@font-face {
+  font-family: Bubble;
+  src: url('../fonts/Play-Ink.otf');
+}
+
+/*Global CSS*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: opacity 0.5s ease;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(0, 0, 182);
+  justify-content: space-around;
+  align-items: center;
+  font-family: Bubble;
+  text-align: center;
+  font-size: 16px;
+  color: lightskyblue;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+button {
+  height: 75px;
+  width: 270px;
+  border: 5px outset black;
+  border-radius: 5%;
+  color: lightskyblue;
+  font-family: Bubble;
+  font-size: 3rem;
+  background: none;
+  background-color: rgb(0, 0, 85);
+  margin: 10px;
+  cursor: pointer;
+}
+button:active {
+  background-color: rgb(0, 0, 182);
+}
+
+.background {
+  background-image: url('../images/background.png');
+  background-size: 80% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/*Header CSS*/
+header {
+  position: absolute;
+  display: flex;
+  top: 10px;
+  height: 50px;
+  width: 100%;
+  z-index: 3;
+  text-align: left;
+  padding-left: 10px;
+  font-size: 3rem;
+}
+.icon {
+  background-image: url('../images/icon.png');
+  height: 100%;
+  width: 50px;
+}
+.title {
+  width: 11%;
+  padding-left: 10px;
+}
+
+.breadcrumb {
+  text-align: left;
+  font-size: 2rem;
+  align-items: flex-end;
+}
+/*Menu CSS*/
+.menu {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  z-index: 4;
+}
+
+.exit {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/*Window CSS*/
+.window {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding-top: 1%;
+  background-color: rgb(0, 0, 182);
+}
+
+/*Home Screen CSS */
+.window-home {
+  height: 100%;
+  width: 100%;
+}
+.window-home h2 {
+  font-size: 20rem;
+  text-shadow: -10px -10px 0 #000, 10px -10px 0 #000, -10px 10px 0 #000, 10px 10px 0 #000;
+}
+
+.window-home h3 {
+  font-size: 10rem;
+  text-shadow: -5px -5px 0 #000, 5px -5px 0 #000, -5px 5px 0 #000, 5px 5px 0 #000;
+  padding-bottom: 30px;
+}
+
+.window-home .button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3%;
+}
+
+/*Start Screen CSS*/
+.window-start {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  height: 40vh;
+  text-align: center;
+  align-items: center;
+  padding-top: 50px;
+}
+
+.window-start h2 {
+  font-size: 5rem;
+  text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;
+}
+
+.window-start input {
+  background-color: rgb(0, 0, 182);
+  border: 5px solid black;
+  color: lightskyblue;
+  font-family: Bubble;
+  font-size: 60px;
+  margin: 10px;
+  text-align: center;
+}
+
+/*Instructions Screen CSS*/
+.window-instructions {
+  position: absolute;
+  background-color: navy;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+}
+
+.window-instructions .p {
+  position: absolute;
+  text-align: center;
+  font-size: 3rem;
+  width: 50%;
+  height: 50%;
+}
+
+.window-instructions .button {
+  position: relative;
+  margin-top: 300px;
+}
+
+.window-instructions .previous {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/*Game Screen CSS*/
+.game {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  background-color: rgb(0, 0, 182);
+}
+
+.game-start {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-self: center;
+  align-items: center;
+}
+
+.enemies-beaten {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 3rem;
+}
+
+.players {
+  position: absolute;
+  width: 100%;
+  top: 21%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  align-items: center;
+  overflow: visible;
+}
+
+.human-player h2,
+.computer-player h2 {
+  font-size: 5rem;
+}
+
+.human-player h3,
+.computer-player h3 {
+  font-size: 3rem;
+}
+
+.hover-info {
+  position: absolute;
+  background-color: navy;
+  left: 5%;
+  top: 8%;
+  width: 300px;
+  height: 375px;
+  font-size: 2rem;
+  opacity: 0;
+  z-index: 2;
+}
+
+.human-player:hover .hover-info {
+  opacity: 1;
+}
+
+.new-enemy-info {
+  position: absolute;
+  width: 100%;
+  height: 70%;
+  top: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.new-enemy-info h2 {
+  position: absolute;
+  top: 7%;
+  font-size: 60px;
+  text-align: center;
+}
+
+.info {
+  position: absolute;
+  width: 100%;
+  height: 70%;
+  top: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info h2 {
+  position: absolute;
+  top: 7%;
+  font-size: 60px;
+  text-align: center;
+}
+
+.choose-attack,
+.results {
+  position: absolute;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.results {
+  height: 20vh;
+  bottom: 40%;
+}
+
+.results .ok {
+  position: absolute;
+  top: 10px;
+}
+
+.results .end {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.choose-attack div {
+  display: flex;
+  flex-direction: column;
+  font-size: 50px;
+  height: 350px;
+  padding-left: 5px;
+  padding-right: 5px;
+  cursor: pointer;
+}
+
+img {
+  width: 300px;
+  height: 80%;
+}
+
+.attack {
+  display: inline;
+}
+
+.level-up {
+  display: flex;
+  flex-direction: column;
+}
+
+.mini-icon {
+  height: 20px;
+  width: 20px;
+  vertical-align: middle;
+}
+
+div.fadeOut {
+  opacity: 0;
+  pointer-events: none;
+}
+
+div.fadeIn {
+  opacity: 1;
+  pointer-events: 1;
+}

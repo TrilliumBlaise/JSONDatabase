@@ -1,0 +1,505 @@
+
+/*CSS for whole page*/
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    color: whitesmoke;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+input, button {
+    color:rgb(11, 173, 84); 
+}
+input {
+    padding-left: 10px;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(7, 102, 50);
+    overflow: hidden;
+}
+
+.app {
+    height: 100%;
+    width: 100%;
+}
+
+.screen {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 12px;
+}
+
+span {
+    border: #c0c0c0 1px dotted;
+    padding: 5px 20px 5px 5px;
+    display: none;
+    z-index: 100;
+    background: #f0f0f0 no-repeat 100% 5%;
+    width: 250px;
+    font-size: 25px;   
+    color:rgb(11, 173, 84); 
+}
+
+.link {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    font-size: 1.75em;
+    color: whitesmoke;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.link u:active {
+    color: rgb(202, 202, 202)
+}
+
+/*CSS for WelcomeScreen*/
+h2.welcome {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+/*CSS for LogInScreen*/
+.log-in .title {
+    margin-top: 27%;
+    margin-bottom: 20%;
+    text-align: center;
+    font-size: 5em;
+}
+
+.log-in input {
+    width: 90%;
+    font-size: 1.75em;
+}
+
+.log-in #enter {
+    align-self: center;
+    font-size: 1.75em;
+    width: 50%;
+    height: 7%;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.log-in span {
+    position:absolute;
+    top: 72%;
+    left: 15%;
+}
+
+.new-user-welcome {
+    text-align: center;
+    font-size: 2em;
+}
+
+/*CSS for NewUsersScreen*/
+.new_users input {
+    font-size: 1.75em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.new_users .thankyou {
+    margin-top: 25%;
+    text-align: center;
+}
+
+.new_users .form {
+    margin-top: 20%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.new_users .form h2 {
+    font-size: 2em;
+}
+
+.span-username {
+    position: absolute;
+    top: 28%;
+    left: 24%;
+}
+
+.span-password1 {
+    position: absolute;
+    top: 39%;
+    left: 24%;
+} 
+
+.span-password2 {
+    position: absolute;
+    top: 33%;
+    left: 24%;
+}
+
+.span-matching-password {
+    position: absolute;
+    top: 50%;
+    left: 24%;
+}
+
+.matching-password {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.new_users #enter {
+    align-self: center;
+    font-size: 1.75em;
+    width: 50%;
+    height: 25%;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/*CSS for BudgetScreen*/
+.header {
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 5%;
+    font-size: 2em;    
+}
+
+.control-buttons {
+    flex: 2;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.control-buttons button {
+    width: 30px;
+    height: 30px;
+}
+
+.budget-calender {
+    width: 100%;
+    height: 55%;
+}
+
+.balance-expense {
+    width: 100%;
+    height: 30%;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    height: 10%
+}
+
+.buttons button {
+    height: 90%;
+    width: 40%;
+}
+
+/*CSS for Calender*/
+.todays-date {
+    width: 100%;
+    height: 9%;
+    background-color: darkblue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.75em;
+}
+
+.today {
+    margin-left: 2%;
+    cursor: pointer;
+}
+
+.month-year-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    width: 100%;
+    height: 8%;
+}
+
+.month-year {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.month-year:active {
+    background-color: rgba(128, 128, 128, 0.377);
+}
+
+.month {
+    margin-right: 2%;
+}
+
+.right-arrow {
+    position: absolute;
+    right: 1%;
+    min-width: 25px;
+    min-height: 25px;
+    border: none;
+    background: none;
+    background-image: url('../../assets/images/black-arrow.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transform: rotate(-90deg);
+}
+
+.left-arrow {
+    position: absolute;
+    left: 1%;
+    min-width: 25px;
+    min-height: 25px;
+    border: none;
+    background: none;
+    background-image: url('../../assets/images/black-arrow.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transform: rotate(90deg);
+}
+
+.open-close {
+    margin-right: 3%;
+    min-width: 25px;
+    min-height: 25px;
+    border: none;
+    background: none;
+    background-image: url('../../assets/images/arrow.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+.select-date input{
+    position: absolute;
+    left: 16%;
+    top: 10%;
+    font-size: 2em;
+    z-index: 100;
+}
+
+.flip {
+    transform: rotate(180deg);
+}
+
+.days-of-week,
+.dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.days-of-week {
+    width: 100%;
+    height: 3%;
+    text-align: center;
+    text-justify: center;
+    font-size: 1.25em;
+    margin-top: 2%;
+    cursor: default;
+}
+
+.dates {
+    width: 100%;
+    height: 85%;
+    margin-top: 3%;
+}
+
+.date {
+    display: flex;
+    max-height: 150px;
+    max-width: 150px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 2.5em;
+    cursor: pointer;
+}
+
+.selected-day {
+    border: 10px ridge blue;
+}
+
+/*CSS for ConfrimEnrollmentScreen*/
+.confirm {
+    justify-content: center;
+    text-align: center;
+    font-size: 3em;
+}
+
+/*CSS for IntakeScreen*/
+input, button, select, option {
+    color:rgb(11, 173, 84);
+}
+.screen {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 12px;
+}
+
+span {
+    border: #c0c0c0 1px dotted;
+    padding: 5px 20px 5px 5px;
+    display: none;
+    z-index: 100;
+    background: #f0f0f0 no-repeat 100% 5%;
+    width: 250px;
+    font-size: 30px; 
+    color:rgb(11, 173, 84);  
+}
+
+.link {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    font-size: 1em;
+    color: whitesmoke;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.next {
+    align-self: center;
+    font-size: .75em;
+    width: 50%;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.account {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 2.5em;
+}
+
+.account input {
+    align-self: center;
+    font-size: .60em;
+    margin-top: 10%;
+}
+
+.account .next {
+    margin-top: 10%;
+}
+
+.intake span {
+    position:absolute;
+    top: 65%;
+    left: 13%;
+}
+
+.skip {
+    position:absolute;
+    align-self: flex-end;
+    margin-right: 3%;
+    font-size: .75em;
+    background: none;
+    border: none;
+    cursor: pointer;
+    bottom: 10%;
+}
+
+.return {
+    position:absolute;
+    align-self: flex-start;
+    margin-right: 3%;
+    font-size: .75em;
+    background: none;
+    border: none;
+    cursor: pointer;
+    bottom: 10%;
+}
+
+.skip u:active {
+    color: rgb(153, 152, 152)
+}
+
+.paycheck {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: 2.5em;
+    margin-top: 20%;
+}
+
+.paycheck input {
+    align-self: center;
+    font-size: .55em;
+}
+
+.radioBtns {
+    font-size: .55em;
+    margin-left: 15%;
+}
+
+select {
+    width: 70%;
+    font-size: .55em;
+    margin-left: 15%;
+}
+
+.paycheck .next {
+    margin-top: 20%;
+}
+
+.bills {
+    position: relative;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 2.5em;
+}
+
+.bills input {
+    align-self: center;
+    font-size: .55em;
+}
+
+.bills .next {
+    margin-top: 10%;
+}
+
+.finished {
+    text-align: center;
+    font-size: 3em;
+}
+
+.minimize {
+    display: none;
+}

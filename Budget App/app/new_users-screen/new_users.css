@@ -1,0 +1,132 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    color: whitesmoke;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+input, button {
+    color:rgb(7, 102, 50)
+}
+body {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(7, 102, 50);
+    overflow: hidden;
+
+}
+
+.app {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.new-user-welcome {
+    text-align: center;
+    font-size: 2em;
+}
+
+span {
+    border: #c0c0c0 1px dotted;
+    padding: 5px 20px 5px 5px;
+    display: none;
+    z-index: 100;
+    background: #f0f0f0 no-repeat 100% 5%;
+    width: 250px;
+    font-size: 20px;   
+}
+
+.minimize {
+    display: none;
+}
+
+.screen {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 12px;
+}
+
+.new_users input {
+    font-size: 1.75em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.new_users .thankyou {
+    margin-top: 25%;
+    text-align: center;
+}
+
+.new_users .form {
+    margin-top: 20%;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.new_users .form h2 {
+    font-size: 2em;
+}
+
+.username {
+    position: relative;
+    padding: 12px;
+}
+
+.password {
+    position:relative;
+    padding: 12px;
+}
+
+.matching-password {
+    position: relative;
+    padding: 12px;
+}
+
+.span-username,
+.span-password1,
+.span-password2,
+.span-matching-password{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.matching-password {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.new_users #enter {
+    align-self: center;
+    font-size: 1.75em;
+    width: 50%;
+    height: 25%;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.new_users #return {
+    font-size: 1em;
+    color: whitesmoke;
+    background: none;
+    border: none;
+    align-self: flex-end;
+    margin-top: 30px;
+    margin-left: 6%;
+    cursor: pointer;
+}

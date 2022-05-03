@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  font-size: 10rem;
+  align-items: center;
+  justify-content: center;
+}
+
+img {
+  position: absolute;
+  z-index: -1;
+  width: 80%;
+  height: 100%;
+}
+
+#timer {
+  display: flex;
+  position: absolute;
+  padding-left: 25px;
+  top: 28%;
+  width: 39%;
+  height: 15%;
+  background-color: rgb(198, 212, 199);
+  border-radius: 5%;
+}
+.time {
+  padding-bottom: 25px;
+  height: 100%;
+  width: 75px;
+  text-align: start;
+}
+
+button {
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  height: 15%;
+  width: 10%;
+}
+
+#start-stop {
+  top: 5%;
+  left: 61%;
+}
+
+#clear-time {
+  top: 5%;
+  right: 61%;
+}

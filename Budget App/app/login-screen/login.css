@@ -1,0 +1,89 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    color: whitesmoke;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+input, button {
+    color:rgb(7, 102, 50)
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(7, 102, 50);
+    overflow: hidden;
+
+}
+
+.screen {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 12px;
+}
+
+span {
+    border: #c0c0c0 1px dotted;
+    padding: 5px 20px 5px 5px;
+    display: none;
+    z-index: 100;
+    background: #f0f0f0 no-repeat 100% 5%;
+    width: 250px;
+    font-size: 20px;   
+}
+
+.minimize {
+    display: none;
+}
+
+.log-in .title {
+    margin-top: 27%;
+    margin-bottom: 20%;
+    text-align: center;
+    font-size: 5em;
+}
+
+.log-in input {
+    width: 90%;
+    font-size: 1.75em;
+}
+
+.log-in #enter {
+    align-self: center;
+    font-size: 1.75em;
+    width: 50%;
+    height: 7%;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.log-in span {
+    position:absolute;
+    top: 35%;
+    left: 5%;
+}
+
+.log-in #new-user {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    font-size: 1em;
+    color: whitesmoke;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.log-in #new-user u:active {
+    color: rgb(202, 202, 202)
+}
+
+.new-user-welcome {
+    text-align: center;
+    font-size: 2em;
+}

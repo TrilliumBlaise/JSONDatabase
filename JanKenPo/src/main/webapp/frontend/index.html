@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JanKenPo</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="icon" href="../images/icon.png" />
+    <script src="app.js" type="module"></script>
+  </head>
+
+  <body>
+    <header>
+      <img class="icon" src="../images/icon.png" alt="" />
+      <div class="title">JanKenPo</div>
+      <div class="breadcrumb">Home Screen</div>
+    </header>
+    <div class="window background fadeIn">
+      <div class="window-home fadeIn">
+        <h2>JanKenPo</h2>
+        <h3>The Battle for the Pond</h3>
+        <div class="button">
+          <button class="start"><u>S</u>TART</button>
+        </div>
+      </div>
+      <div class="window-start fadeOut">
+        <h2>Please tell me your name!</h2>
+        <input id="name" type="text" placeholder="Name Here" autocomplete="off" />
+        <div class="button">
+          <button class="enter"><u>ENTER</u></button>
+        </div>
+      </div>
+    </div>
+    <div class="menu">
+      <button class="exit"><u>E</u>XIT</button>
+      <button class="instructions"><u>I</u>NSTRUCTIONS</button>
+    </div>
+    <div class="window-instructions background">
+      <div class="p" data-index="0"></div>
+      <div class="button">
+        <button class="previous"><u>P</u>REVIOUS</button>
+        <button class="close"><u>C</u>LOSE</button>
+        <button class="next"><u>N</u>EXT</button>
+      </div>
+    </div>
+    <div class="game background fadeOut">
+      <div class="new-enemy-info fadeIn">
+        <h2></h2>
+        <button class="fight"><u>F</u>IGHT</button>
+      </div>
+      <div class="game-start fadeOut">
+        <div class="enemies-beaten"></div>
+        <div class="players">
+          <div class="human-player">
+            <h2>Playername</h2>
+            <h3>CurrentHP/MaxHP</h3>
+            <div><img id="info" class="mini-icon" src="../images/informationicon.png" alt="Information" />About Stats</div>
+            <span class="hover-info">
+              Life is the amount of damage you can take.<br />Power is the strength of an attack<br />Defense is the ability to withstand an attack<br />Damage
+              = (Power - Defense)<br />Damage is always at least 5
+            </span>
+          </div>
+          <div data-previous-attack="" class="computer-player">
+            <h2>Computername</h2>
+            <h3>CurrentHP/MaxHP</h3>
+          </div>
+        </div>
+        <div class="info fadeIn">
+          <h2>Choose your attack!</h2>
+          <div class="choose-attack fadeIn">
+            <div class="rock">
+              <img id="rock" src="../images/Rock.png" alt="Rock" />
+              <span class="attack"><u>R</u>OCK</span>
+            </div>
+            <div class="paper">
+              <img id="paper" src="../images/paper.png" alt="Paper" />
+              <span class="attack"><u>P</u>APER</span>
+            </div>
+            <div class="scissors">
+              <img id="scissors" src="../images/scissors.png" alt="Scissors" />
+              <span class="attack"><u>S</u>CISSORS</span>
+            </div>
+          </div>
+          <div class="results fadeOut">
+            <button class="ok"><u>O</u>K</button>
+            <button class="end"><u>E</u>ND</button>
+          </div>
+          <div class="level-up fadeOut">
+            <button class="hp"><u>L</u>IFE +10</button>
+            <button class="power"><u>P</u>OWER +5</button>
+            <button class="defense"><u>D</u>EFENSE +5</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
