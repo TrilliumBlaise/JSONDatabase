@@ -19,7 +19,7 @@ export function createEnemy(player, count) {
     '',
     {
       name: sprite[1],
-      sprite: createElement(sprite[0]),
+      sprite: sprite[0],
       enemyElement: elements[getRandomNumber(4)],
       drop: setDrop(player, count),
       hp: 0,
@@ -28,11 +28,12 @@ export function createEnemy(player, count) {
       takeDamage,
     },
   ];
-  [enemy[1].hp] = setStats(player);
+  const stats = setStats(player);
   enemy[1].hp = stats[0];
   enemy[1].maxHP = enemy[1].hp;
   enemy[1].power = stats[1];
   enemy[1].speed = stats[2];
+  enemy[0] = createElement(enemy[1]);
   return enemy;
 }
 
@@ -63,7 +64,6 @@ function takeDamage(player) {
   });
   damage = Math.floor(damage * player.inventory[0][0].type.speed);
   this.hp = this.hp - damage;
-  //Prevents negative hp values
   if (this.hp < 0) {
     this.hp = 0;
   }
@@ -86,7 +86,7 @@ function setCreature(count) {
   return countEnemies[getRandomNumber(countEnemies.length)];
 }
 //returns the name of this
-//@count
+//@Param creature, element
 function setSprite(count) {
   creature = setCreature(count);
   const index = getRandomNumber(creature.name.length);
@@ -102,7 +102,7 @@ function setDrop(player, count) {
   return 'orb';
 }
 //returns the stats of this [hp, power, speed]
-//@Param player
+//@Param player, creature
 function setStats(player) {
   if (player.level < 5) return creature.statsBelowLevel5;
   if (player.level < 10) return creature.statsBelowLevel10;

@@ -27,6 +27,14 @@ const messageElement = document.querySelector('h1');
 
 document.addEventListener('DOMContentLoaded', e => {
   startConfetti();
+  rainbowFontColor(CONGRATS_MESSAGE);
+});
+
+document.addEventListener('click', e => {
+  toggleConfetti();
+});
+
+function rainbowFontColor(CONGRATS_MESSAGE) {
   let count = 0;
   for (let i = 0; i < CONGRATS_MESSAGE.length; i++) {
     if (count > COLORS.length - 1) {
@@ -41,8 +49,4 @@ document.addEventListener('DOMContentLoaded', e => {
       newLetter.style.color = COLORS[count++];
     }
   }
-});
-
-document.addEventListener('click', e => {
-  toggleConfetti();
-});
+}

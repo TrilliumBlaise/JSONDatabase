@@ -22,39 +22,43 @@ document.querySelector('.inventory-button').addEventListener('click', () => {
 
 //Allows the player to save and quit the game
 document.querySelector('.yes').addEventListener('click', () => {
-  if (currentAction.innerHTML === 'save') {
-    const savePlayer = CurrentPlayerAPI.read();
-    const players = PlayerAPI.getPlayers();
-    const foundPlayerFlag = players.some(
-      player => player.name === savePlayer.name
-    );
-    if (!foundPlayerFlag) {
-      PlayerAPI.saveNewPlayer(savePlayer);
+  switch (currentAction.innerHTML) {
+    case 'save': {
+      const savePlayer = CurrentPlayerAPI.read();
+      const players = PlayerAPI.getPlayers();
+      const foundPlayerFlag = players.some(player => player.name === savePlayer.name);
+      if (!foundPlayerFlag) {
+        PlayerAPI.saveNewPlayer(savePlayer);
+      }
+      if (foundPlayerFlag) {
+        PlayerAPI.updatePlayer(savePlayer);
+      }
+      textOutput.innerHTML = 'Your game has been saved.<br> Would you like to quit?';
+      currentAction.innerHTML = 'quit';
+      break;
     }
-    if (foundPlayerFlag) {
-      PlayerAPI.updatePlayer(savePlayer);
+    case 'quit': {
+      window.reload();
+      break;
     }
-    textOutput.innerHTML =
-      'Your game has been saved.<br> Would you like to quit?';
-    currentAction.innerHTML = 'quit';
-    return;
   }
-  window.location.href = '../home-screen/home-screen.html';
 });
 
 //Allows the player to not save and not quit the game
 document.querySelector('.no').addEventListener('click', () => {
-  if (currentAction.innerHTML === 'save') {
-    textOutput.innerHTML =
-      'Your game has NOT been saved.<br> Would you like to quit?';
-    currentAction.innerHTML = 'quit';
-    return;
+  switch (currentAction.innerHTML) {
+    case 'save': {
+      textOutput.innerHTML = 'Your game has NOT been saved.<br> Would you like to quit?';
+      currentAction.innerHTML = 'quit';
+      break;
+    }
+    case 'quit': {
+      currentAction.innerHTML = 'save';
+      document.querySelector('.inventory').innerHTML = '';
+      window.location.href = '../village-screen/village-screen.html';
+      break;
+    }
   }
-  currentAction.innerHTML = 'save';
-  document.querySelector('.inventory').innerHTML = '';
-  window.location.href = '../village-screen/village-screen.html';
 });
 
-document.querySelector(
-  '.inventory'
-).innerHTML = `<iframe src= '../inventory-screen/inventory-screen.html' scrolling= 'no'></iframe>`;
+document.querySelector('.inventory').innerHTML = `<iframe src= '../inventory-screen/inventory-screen.html' scrolling= 'no'></iframe>`;

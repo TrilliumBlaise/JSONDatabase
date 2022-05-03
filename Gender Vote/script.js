@@ -1,19 +1,18 @@
-const SEX = '';
-const REVEAL_TIME = '11:00:00';
+const SEX = 'boy';
+const REVEAL_TIME = { hours: 14, minutes: 30, seconds: 0 };
 
-const boyVotes = document.querySelector('.boy');
-const girlVotes = document.querySelector('.girl');
+const boyElement = document.querySelector('.boy').firstElementChild;
+const girlElement = document.querySelector('.girl').firstElementChild;
 
 let savedVotes;
 document.addEventListener('DOMContentLoaded', e => {
-  savedVotes = loadSavedVotes();
-  if (savedVotes) {
-    boyVotes.innerHTML = `<h1>${savedVotes.boy}</h1>`;
-    girlVotes.innerHTML = `<h1>${savedVotes.girl}</h1>`;
-  }
+  showResults();
 });
-
 document.addEventListener('click', e => {
+  savedVotes = {
+    boy: parseInt(boyElement.innerHTML),
+    girl: parseInt(girlElement.innerHTML),
+  };
   if (e.target.classList.contains('boy')) {
     addVote('boy');
   }
@@ -29,21 +28,32 @@ function addVote(sex) {
   if (sex === 'girl') {
     savedVotes.girl += 1;
   }
-  saveVotes(savedVotes);
+  showResults(savedVotes);
 }
 
-function loadSavedVotes() {
-  const url = 'https://github.com/TrilliumBlaise/Gender-Vote/blob/main/votes.json';
-  let request = new XMLHttpRequest();
-  request.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      return JSON.parse(this.responseText);
-    }
-  };
-  request.open('GET', url, true);
-  request.send();
+function showResults(data) {
+  if (data != undefined) {
+    boyElement.innerHTML = `${data.boy}`;
+    girlElement.innerHTML = `${data.girl}`;
+    return;
+  }
+  boyElement.innerHTML = 0;
+  girlElement.innerHTML = 0;
 }
 
-function saveVotes(data) {
-  localStorage.setItem('votes', JSON.stringify(data));
+function revealSex() {
+  const date = new Date();
+  if (date.getHours() === REVEAL_TIME.hours && date.getMinutes() === REVEAL_TIME.minutes && date.getSeconds() === REVEAL_TIME.seconds) {
+    const container = document.querySelector('.container');
+    container.innerHTML = '';
+    container.classList.add(`${SEX.toLowerCase()}`);
+    const newMessage = document.createElement('h1');
+    newMessage.innerHTML = `Congratulations!<br> It's a ${SEX}!`;
+    container.append(newMessage);
+    startConfetti();
+  }
 }
+
+setInterval(() => {
+  revealSex();
+}, 250);

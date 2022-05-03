@@ -1,5 +1,6 @@
 import CurrentPlayerAPI from '../../player/CurrentPlayerAPI.js';
 import { elements } from '../../element/element.js';
+import { isSameElement } from '../../element/element.js';
 
 //Variables
 const player = CurrentPlayerAPI.read();
@@ -34,8 +35,7 @@ evilBtn.addEventListener('click', () => {
   document.querySelector('.warning').classList.replace('fadeOut', 'fadeIn');
   if (!checkPrimeWeapon()) {
     document.querySelector('.buttons').classList.add('fadeOut');
-    document.querySelector('.text').innerHTML =
-      'Only with the complete form of the Sword of Light can you defeat the Evil One!';
+    document.querySelector('.text').innerHTML = 'Only with the complete form of the Sword of Light can you defeat the Evil One!';
     setTimeout(function () {
       document.querySelector('.buttons').classList.remove('fadeOut');
       document.querySelector('.main').classList.remove('blur');
@@ -43,9 +43,7 @@ evilBtn.addEventListener('click', () => {
     }, 5000);
     return;
   }
-  document.querySelector(
-    '.text'
-  ).innerHTML = `Once you have begun this battle, there is no turning back.<br> Are you sure you want to proceed?`;
+  document.querySelector('.text').innerHTML = `Once you have begun this battle, there is no turning back.<br> Are you sure you want to proceed?`;
 });
 
 //Lets the yes button route to the final_battle-screen
@@ -59,8 +57,7 @@ document.querySelector('.yes').addEventListener('click', () => {
 
 //Allows the player to say they need a bit more preparation
 document.querySelector('.no').addEventListener('click', () => {
-  document.querySelector('.text').innerHTML =
-    'It is wise to make sure you are prepared for this fight.';
+  document.querySelector('.text').innerHTML = 'It is wise to make sure you are prepared for this fight.';
   document.querySelector('.buttons').classList.add('fadeOut');
   setTimeout(function () {
     document.querySelector('.buttons').classList.remove('fadeOut');

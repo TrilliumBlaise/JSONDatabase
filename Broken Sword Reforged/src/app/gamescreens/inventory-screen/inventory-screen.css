@@ -10,8 +10,7 @@
   height: 20%;
   width: 100%;
   color: rgb(248, 248, 248);
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-    1px 1px 0 #000;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   font-size: 75px;
 }
 
@@ -64,8 +63,7 @@
   background-repeat: no-repeat;
   background-position: center;
   color: rgb(248, 248, 248);
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-    1px 1px 0 #000;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 .equip-column .item {
   min-height: 150px;
@@ -84,8 +82,7 @@ span.active {
   background: #f0f0f0 no-repeat 100% 5%;
   font-size: 30px;
   color: rgb(248, 248, 248);
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-    1px 1px 0 #000;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   left: 65%;
 }
 
@@ -121,8 +118,7 @@ span.active {
   text-align: center;
   font-size: 30px;
   color: rgb(248, 248, 248);
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-    1px 1px 0 #000;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .fire {
@@ -143,14 +139,4 @@ span.active {
 
 .orb {
   background-image: url('../../../assets/images/orb.png');
-}
-
-.inventory-slot-dropzone {
-  height: 0px;
-  transition: background 0.15s, height 0.15s;
-}
-
-.dropzone--active {
-  height: 20px;
-  background: rgb(0, 0, 0, 0.25);
 }

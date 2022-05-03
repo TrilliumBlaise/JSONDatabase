@@ -26,7 +26,7 @@ document.querySelectorAll('.inventory-slot').forEach(slot => {
   }
 });
 
-//Allows for Drag and Drop of Weapon Slots
+//Allows for Drag and Drop of Weapon Slots and Hovered
 
 let dragged;
 let hovered;
@@ -105,7 +105,7 @@ document.querySelectorAll('.weapon').forEach(slot => {
     }
   });
 });
-//Allows for Drag and Drop of Crystal Slots
+//Allows for Drag and Drop of Crystal Slots and Hover
 document.querySelectorAll('.crystalSlot').forEach(slot => {
   slot.addEventListener('mouseenter', e => {
     if (e.target.classList.contains('item')) return;
@@ -169,7 +169,7 @@ document.querySelectorAll('.crystalSlot').forEach(slot => {
     }
   });
 });
-//Allows for Drag and Drop of Orb Slots
+//Allows for Drag and Drop of Orb Slots and Hover
 document.querySelectorAll('.orbSlot').forEach(slot => {
   slot.addEventListener('mouseenter', e => {
     if (e.target.classList.contains('item')) return;
@@ -241,11 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const slot = slotsArray[i][j];
       if (i === 0) {
         if (typeof item.name === 'number') {
-          slot.innerHTML += `<div data-power= '${
-            item.type.power
-          } data-element= '${
-            item.weaponElements[0].element
-          }' data-durability= '${
+          slot.innerHTML += `<div data-power= '${item.type.power} data-element= '${item.weaponElements[0].element}' data-durability= '${
             item.type.durability
           }' class= 'item ${item.type.type.toLowerCase()}' draggable = 'true'></div>`;
         }

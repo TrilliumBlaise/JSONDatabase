@@ -39,12 +39,12 @@ export default class PlayerAPI {
 
 /* Format of a player
 {
-    name: '',
-    level: 0,
-    hp: [],
-    inventory: [],
-    equipSlot: {}
-    gold: 0
+  name: '',
+  level: 0,
+  hp: [],
+  inventory: [],
+  equipSlot: {}
+  gold: 0
 }
 */
 

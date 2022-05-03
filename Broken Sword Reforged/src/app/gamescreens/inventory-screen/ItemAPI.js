@@ -6,16 +6,14 @@ import { Crystal } from './items/crystal/crystal.js';
 //@Param: player
 //returns [player, reward]
 export function addToInventory(player, dropper) {
+  console.log(player);
   const drop = dropper.drop;
   if (typeof drop === 'number') {
     player.gold += drop;
     return [player, `${drop} Gold`];
   }
   if (drop === 'weapon') {
-    const weapon = new Weapon(
-      randomName(player.usedNames),
-      dropper.enemyElement
-    );
+    const weapon = new Weapon(randomName(player.usedNames), dropper.enemyElement);
     if (player.inventory[0].length === 11) {
       alert('Your weapon inventory is full and so the new weapon is lost.');
     }
@@ -34,21 +32,12 @@ export function addToInventory(player, dropper) {
     if (player.inventory[1].length === 10) {
       alert('Your crystal inventory is full and the new crystal is lost.');
     }
-    const crystal = new Crystal(
-      dropper.weaponElements[0],
-      randomName(player.usedNames)
-    );
+    const crystal = new Crystal(dropper.weaponElements[0], randomName(player.usedNames));
     player.inventory[1].push(crystal);
     if (crystal.rarity.match(/^[aeiou].*/i)) {
-      return [
-        player,
-        `An ${crystal.rarity} ${crystal.crystalElement.element} Crystal`,
-      ];
+      return [player, `An ${crystal.rarity} ${crystal.crystalElement.element} Crystal`];
     }
-    return [
-      player,
-      `A ${crystal.rarity} ${crystal.crystalElement.element} Crystal`,
-    ];
+    return [player, `A ${crystal.rarity} ${crystal.crystalElement.element} Crystal`];
   }
 }
 
@@ -71,9 +60,7 @@ export function useItemFromInventory(player, item) {
     const index = player.inventory[1].indexOf(item);
     const boolean = checkCrystalUsage(equippedWeapon, item);
     if (!boolean) {
-      alert(
-        'Your crystal shines momentarily and then the crystal shatters. Nothing seems to have changed...'
-      );
+      alert('Your crystal shines momentarily and then the crystal shatters. Nothing seems to have changed...');
     }
     if (boolean) {
       Weapon.enhanceWeapon(equippedWeapon, item);
@@ -86,9 +73,7 @@ export function useItemFromInventory(player, item) {
       const crystal = player.inventory[1][i];
       document.querySelector(
         `#crystal-${i + 1}`
-      ).innerHTML = `<div class= 'item crystal ${crystal.element.element.toLowerCase()}' draggable = 'true'>${
-        crystal.rarity
-      }</div>`;
+      ).innerHTML = `<div class= 'item crystal ${crystal.element.element.toLowerCase()}' draggable = 'true'>${crystal.rarity}</div>`;
       document.querySelector(`#crystal-${i + 2}`).innerHTML = '';
     }
     return player;
@@ -106,9 +91,7 @@ export function useItemFromInventory(player, item) {
     }
     for (let i = 0; i < player.inventory[2].length; i++) {
       const orb = player.inventory[2][i];
-      document.querySelector(
-        `#orb-${i + 1}`
-      ).innerHTML = `<div class= 'item orb' draggable = 'true'></div>`;
+      document.querySelector(`#orb-${i + 1}`).innerHTML = `<div class= 'item orb' draggable = 'true'></div>`;
       document.querySelector(`#orb-${i + 2}`).innerHTML = '';
     }
     return player;
@@ -123,8 +106,7 @@ export function damageDurabiliy(player, damageToDurablity) {
   if (typeof player.inventory[0][0].name === 'string') {
     return [player, null];
   }
-  const durablity = (player.inventory[0][0].type.durability -=
-    damageToDurablity);
+  const durablity = (player.inventory[0][0].type.durability -= damageToDurablity);
   if (durablity <= 0) {
     const arr = addToInventory(player, player.inventory[0][0]);
     const reward = arr[1];
@@ -140,8 +122,31 @@ export function damageDurabiliy(player, damageToDurablity) {
 //@Params: slot
 export function getIndex(slot) {
   const thisClass = slot.classList[1];
-  const slots = [...document.querySelectorAll(`.${thisClass}`)];
-  return slots.indexOf(slot);
+  const slots = document.querySelectorAll(`.${thisClass}`);
+  switch (slot) {
+    case slots[0]:
+      return 0;
+    case slots[1]:
+      return 1;
+    case slots[2]:
+      return 2;
+    case slots[3]:
+      return 3;
+    case slots[4]:
+      return 4;
+    case slots[5]:
+      return 5;
+    case slots[6]:
+      return 6;
+    case slots[7]:
+      return 7;
+    case slots[8]:
+      return 8;
+    case slots[9]:
+      return 9;
+    case slots[10]:
+      return 10;
+  }
 }
 
 //Checks to see if the crystal usage number is correct

@@ -114,11 +114,10 @@ document.querySelector('.return-button').addEventListener('click', () => {
 //Functions
 
 //Function for filling the sky with clouds
-const NUMBER_OF_CLOUDS = 5;
 function fillTheSky() {
   const clouds = document.querySelector('.background-clouds');
   //creates a random number between 1 and 5;
-  const randomNumber = Math.floor(Math.random() * NUMBER_OF_CLOUDS + 1);
+  const randomNumber = Math.floor(Math.random() * 5 + 1);
   for (let i = 1; i <= randomNumber; i++) {
     clouds.innerHTML += `<div class= "background-cloud cloud${i}"></div>`;
   }
@@ -132,6 +131,7 @@ function spawn() {
     document.querySelector('.background').classList.add('blur');
     const ENEMY = createEnemy(player, count);
     enemy = ENEMY[1];
+    console.log(enemy);
     if (enemy.enemyElement.element[0].match(/^[aeiou].*/i)) {
       document.querySelector('.battle-text').innerHTML = `You have encountered an ${enemy.enemyElement.element} ${enemy.name} prepare for battle!`;
     }

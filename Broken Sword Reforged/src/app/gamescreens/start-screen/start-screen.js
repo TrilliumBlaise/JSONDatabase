@@ -6,6 +6,7 @@ import { elements } from '../../element/element.js';
 const playerInput = document.querySelector('#player-name');
 const weaponInput = document.querySelector('#weapon-name');
 const enter = document.querySelector('#enter');
+
 enter.addEventListener('click', () => {
   initGame();
 });
@@ -20,10 +21,7 @@ weaponInput.addEventListener('keydown', e => {
 
 function initGame() {
   if (validatePlayer()) {
-    const player = new Player(
-      playerInput.value,
-      new Weapon(weaponInput.value, elements[0])
-    );
+    const player = new Player(playerInput.value, new Weapon(weaponInput.value, elements[0]));
     CurrentPlayerAPI.save(player);
     window.location.href = '../village-screen/village-screen.html';
   }

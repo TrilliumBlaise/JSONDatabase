@@ -1,14 +1,15 @@
 import CurrentPlayerAPI from '../../player/CurrentPlayerAPI.js';
 import PlayerAPI from '../../player/PlayerAPI.js';
+import { damageDurabiliy } from '../inventory-screen/ItemAPI.js';
 import Player from '../../player/player.js';
-import { createEnemy } from '../../enemy/enemy.js';
+import Enemy from '../../enemy/enemy.js';
 
 //Creates the iventory screen element
 const inventoryScreen = document.createElement('iframe');
 inventoryScreen.src = '../inventory-screen/inventory-screen.html';
 
 let player = CurrentPlayerAPI.read();
-const enemy = createEnemy();
+const enemy = Enemy.createEnemy();
 
 //Allows player's access to the inventory
 document.querySelector('.inventory-button').addEventListener('click', () => {
@@ -33,8 +34,7 @@ document.querySelector('.inventory-button').addEventListener('click', () => {
 document.querySelector('body').addEventListener('click', () => {
   const equippedWeapon = player.inventory[0][0];
   if (typeof equippedWeapon.name != 'string') {
-    document.querySelector('.battle-text').innerHTML =
-      'Only the sword of light can defeat the Evil One!';
+    document.querySelector('.battle-text').innerHTML = 'Only the sword of light can defeat the Evil One!';
     return;
   }
   battle();
@@ -54,23 +54,13 @@ function battle() {
   const enemyDamage = Player.takeDamage(player, enemy); // [damage, player]
 
   player = enemyDamage[1];
-  document.querySelector(
-    '.battle-text'
-  ).innerHTML = `You have taken ${enemyDamage[0]} damage from ${enemy.name}.<br>`;
+  document.querySelector('.battle-text').innerHTML = `You have taken ${enemyDamage[0]} damage from ${enemy.name}.<br>`;
   if (playerDamage[1] && playerDamage[0] != 0) {
-    document.querySelector(
-      '.battle-text'
-    ).innerHTML += `You have dealt a critical hit! <br>`;
+    document.querySelector('.battle-text').innerHTML += `You have dealt a critical hit! <br>`;
   }
-  document.querySelector(
-    '.battle-text'
-  ).innerHTML += `${enemy.name} has taken ${playerDamage[0]} damage.<br>`;
-  document.querySelector(
-    '.player-hp'
-  ).innerHTML = `${player.name}'s HP: ${player.hp}/${player.maxHP}`;
-  document.querySelector(
-    '.final-boss-hp'
-  ).innerHTML = `The Evil One's HP: ${enemy.hp}/${enemy.maxHP}`;
+  document.querySelector('.battle-text').innerHTML += `${enemy.name} has taken ${playerDamage[0]} damage.<br>`;
+  document.querySelector('.player-hp').innerHTML = `${player.name}'s HP: ${player.hp}/${player.maxHP}`;
+  document.querySelector('.final-boss-hp').innerHTML = `The Evil One's HP: ${enemy.hp}/${enemy.maxHP}`;
   if (player.hp === 0) {
     dead();
   }
